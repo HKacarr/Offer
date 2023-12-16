@@ -126,7 +126,7 @@ export const MyInput = (props) => {
                         style={{
                             textAlign: "center",
                             fontSize: hp(2.5),
-                            color: iconColor || myColors.mainColor,
+                            color: iconColor || myColors.noLoginTitle,
                         }}/>
 
                 </TouchableOpacity>

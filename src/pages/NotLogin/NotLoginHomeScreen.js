@@ -4,10 +4,9 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 import {LoginContext} from "../../contexts/LoginContext";
 import {ThemeContext} from "../../contexts/ThemeContext";
 import {MyText} from "../../components/Common/Text/MyText";
-import Header from "../../components/Home/Header/Header";
-import MaterialCommunityIcons from "react-native-vector-icons/EvilIcons";
-import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
-import {MyIcon} from "../../components/Common/VectorIcon/MyIcon";
+import Header from "../../components/NoLoginHome/Header/Header";
+import SideButton from "../../components/NoLoginHome/BottomButtons/SideButton";
+import {navigate} from "../../RootMethods/RootNavigation";
 
 export const NotLoginHomeScreen = (props) => {
     const loginContext = useContext(LoginContext);
@@ -44,6 +43,7 @@ export const NotLoginHomeScreen = (props) => {
                         userLogoSource={"./assets/image/no-login-home-screen/header/frame.png"}
                         signInText={isLogin ? "User Name" : "Sign In"}
                         isRecording={isRecording}
+                        handleLogin={_handleLogin}
                     />
             </View>
 
@@ -65,7 +65,7 @@ export const NotLoginHomeScreen = (props) => {
                     source={contentBgImage}
                 >
                     <MyText text={isRecording ? "I’m listening to you" : "Tell me something so I can create an offer"} textStyle={{
-                        color: '#303C52',
+                        color: myColors.noLoginTitle,
                         fontSize: wp(8),
                         fontWeight: 700,
                         textAlign: 'center',
@@ -79,7 +79,7 @@ export const NotLoginHomeScreen = (props) => {
                                     text={"00:01"}
                                     textStyle={{
                                         fontSize: wp(7.5),
-                                        color: "#818CA2",
+                                        color: myColors.greyText,
                                         marginTop: wp(4),
                                         fontWeight: 500
                                     }}
@@ -106,7 +106,7 @@ export const NotLoginHomeScreen = (props) => {
                         flexDirection: 'row',
                         alignItems: 'flex-end',
                         flex: 1,
-                        marginBottom: wp(5)
+                        marginBottom: wp(4)
                     }}>
                         <View style={{
                             flex: 1,
@@ -115,67 +115,43 @@ export const NotLoginHomeScreen = (props) => {
                             alignItems: 'center',
                             gap: wp(5)
                         }}>
-                            <View style={{
-                                width: wp('11.5%'),
-                                height: wp('11.5%'),
-                                borderWidth: 1,
-                                borderStyle: 'solid',
-                                borderColor: '#ECEEF1',
-                                borderRadius: wp('10%'),
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                padding: wp(6.5),
-                            }}>
-                                <Image
-                                    style={{
-                                        width: wp(8),
-                                    }}
-                                    resizeMode={"contain"}
-                                    source={require("../../assets/image/no-login-home-screen/content/document-upload.png")}/>
-                            </View>
+                            <SideButton isRecording={isRecording} isLeft={true} />
 
 
                             <TouchableOpacity onPress={handleRecording}>
                                 <View style={{
-                                    width: wp('18%'),
-                                    height: wp('18%'),
+                                    width: wp('17.5%'),
+                                    height: wp('17.5%'),
                                     borderWidth: 1,
                                     borderStyle: 'solid',
-                                    borderColor: '#635BFF',
-                                    backgroundColor: '#635BFF',
+                                    borderColor: myColors.offerPurple,
+                                    backgroundColor: myColors.offerPurple,
                                     borderRadius: wp('10%'),
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     padding: wp(6.5)
                                 }}>
-                                    <Image
-                                        style={{
-                                            width: wp(11),
-                                        }}
-                                        resizeMode={"contain"}
-                                        source={require("../../assets/image/no-login-home-screen/content/record-btn-mic.png")}/>
+                                    {
+                                        isRecording ?
+                                            <Image
+                                                style={{
+                                                    width: wp(9),
+                                                }}
+                                                resizeMode={"contain"}
+                                                source={require("../../assets/image/no-login-home-screen/content/pause.png")}/>
+                                            :
+                                            <Image
+                                                style={{
+                                                    width: wp(11),
+                                                }}
+                                                resizeMode={"contain"}
+                                                source={require("../../assets/image/no-login-home-screen/content/record-btn-mic.png")}/>
+                                    }
                                 </View>
                             </TouchableOpacity>
 
 
-                            <View style={{
-                                width: wp('11.5%'),
-                                height: wp('11.5%'),
-                                borderWidth: 1,
-                                borderStyle: 'solid',
-                                borderColor: '#ECEEF1',
-                                borderRadius: wp('10%'),
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                padding: wp(6.5)
-                            }}>
-                                <Image
-                                    style={{
-                                        width: wp(8),
-                                    }}
-                                    resizeMode={"contain"}
-                                    source={require("../../assets/image/no-login-home-screen/content/direct.png")}/>
-                            </View>
+                            <SideButton isRecording={isRecording} isLeft={false} />
                         </View>
 
                     </View>

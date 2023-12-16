@@ -11,19 +11,29 @@ import {LoadingContext} from '../../contexts/LoadingContext';
 import {DialogContext} from '../../contexts/DialogContext';
 import {ToastContext} from "../../contexts/ToastContext";
 
-// screens
+{/** Screens - Start */}
 import {NotLoginHomeScreen} from "../NotLogin/NotLoginHomeScreen";
 import {HomeScreen} from "../Login/HomeScreen";
 import {SettingsScreen} from "../Login/Settings/SettingsScreen";
 import {ProfileScreen} from "../Login/Profile/ProfileScreen";
+import {AuthHomeScreen} from "../Login/Auth/AuthHomeScreen";
 import {ChangePasswordScreen} from "../Login/Profile/ChangePasswordScreen";
 import {ChangeLanguageScreen} from "../Login/Settings/Language/ChangeLanguageScreen";
-import {ThemeContext} from "../../contexts/ThemeContext";
 import {ChangeThemeScreen} from "../Login/Settings/Theme/ChangeThemeScreen";
-import {StringContext} from "../../contexts/StringContext";
-import messaging from "@react-native-firebase/messaging";
+import {LoginScreen} from "../Login/Auth/LoginScreen";
 import {HandleNotification} from "../../helper/functions/Notification";
+{/** Screens - End */}
+
+
+import messaging from "@react-native-firebase/messaging";
+
+
+{/** Contexts - Start */}
+import {ThemeContext} from "../../contexts/ThemeContext";
+import {StringContext} from "../../contexts/StringContext";
 import { PopupContext } from "../../contexts/PopupContext";
+import {RegisterScreen} from "../Login/Auth/RegisterScreen";
+{/** Contexts - End */}
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -44,6 +54,8 @@ const StackScreens = () => {
             <Stack.Screen name={"ChangePasswordScreen"} component={ChangePasswordScreen} />
             <Stack.Screen name={"ChangeLanguageScreen"} component={ChangeLanguageScreen} />
             <Stack.Screen name={"ChangeThemeScreen"} component={ChangeThemeScreen} />
+            {/*<Stack.Screen name={"AuthHomeScreen"} component={AuthHomeScreen} /> */}
+            {/*<Stack.Screen name={"LoginScreen"} component={LoginScreen} />*/}
         </Stack.Navigator>
     )
 };
@@ -121,8 +133,10 @@ export const Router = (props) => {
                             headerShown: false
                         }}
                         drawerContent={(props) => <DrawerMenu {...props} />}
-                        initialRouteName="HomeScreen">
-                        <Drawer.Screen name={"HomeScreen"} component={StackScreens} />
+                        initialRouteName="">
+                        <Drawer.Screen name={"AuthHomeScreen"} component={AuthHomeScreen} />
+                        <Drawer.Screen name={"LoginScreen"} component={LoginScreen} />
+                        <Drawer.Screen name={"RegisterScreen"} component={RegisterScreen} />
                     </Drawer.Navigator>
 
                     :

@@ -13,7 +13,7 @@ export const myColors = {
         mainColorDarkest: '#9b4e00',
         navBarColor: "#ff8600",
         footerColor: "#ff8600",
-        statusbarColor: "#ff8600",
+        statusbarColor: "#635BFF",
         loadingIndicatorColor: "#ff8600",
         pageBGColor: "#FFFFFF",
         viewBGColor: "#EFEFEF",
@@ -37,6 +37,12 @@ export const myColors = {
         warningColor: '#f29c00',
         shadowColor: "#707070",
         placeholderTextColor: "#707070",
+        offerPurple: "#635BFF",
+        noLoginTitle: "#303C52",
+        greyText: "#818CA2",
+        darkWhite: "#ECEEF1",
+        greyText2: "#435474",
+        waterGreen: "#84EAC0"
     },
     red: {
         mainColor: "#f24343",
@@ -45,7 +51,7 @@ export const myColors = {
         mainColorDarkest: '#ac3636',
         navBarColor: "#f24343",
         footerColor: "#f24343",
-        statusbarColor: "#f24343",
+        statusbarColor: "#635BFF",
         loadingIndicatorColor: "#f24343",
         pageBGColor: "#FFFFFF",
         viewBGColor: "#EFEFEF",
@@ -69,6 +75,12 @@ export const myColors = {
         warningColor: '#f29c00',
         shadowColor: "#707070",
         placeholderTextColor: "#707070",
+        offerPurple: "#635BFF",
+        noLoginTitle: "#303C52",
+        greyText: "#818CA2",
+        darkWhite: "#ECEEF1",
+        greyText2: "#435474",
+        waterGreen: "#84EAC0"
     },
     blue: {
         mainColor: "#3580DF",
@@ -77,7 +89,7 @@ export const myColors = {
         mainColorDarkest: '#2d54a2',
         navBarColor: "#3580DF",
         footerColor: "#3580DF",
-        statusbarColor: "#3580DF",
+        statusbarColor: "#635BFF",
         loadingIndicatorColor: "#3580DF",
         pageBGColor: "#FFFFFF",
         viewBGColor: "#EFEFEF",
@@ -101,6 +113,12 @@ export const myColors = {
         warningColor: '#f29c00',
         shadowColor: "#707070",
         placeholderTextColor: "#707070",
+        offerPurple: "#635BFF",
+        noLoginTitle: "#303C52",
+        greyText: "#818CA2",
+        darkWhite: "#ECEEF1",
+        greyText2: "#435474",
+        waterGreen: "#84EAC0"
     },
     dark: {
         mainColor: "#000",
@@ -109,7 +127,7 @@ export const myColors = {
         mainColorDarkest: '#000',
         navBarColor: "#000",
         footerColor: "#000",
-        statusbarColor: "#000",
+        statusbarColor: "#635BFF",
         loadingIndicatorColor: "#fff",
         pageBGColor: "#FFFFFF",
         viewBGColor: "#EFEFEF",
@@ -133,5 +151,11 @@ export const myColors = {
         warningColor: '#f29c00',
         shadowColor: "#707070",
         placeholderTextColor: "#707070",
-    }
+        offerPurple: "#635BFF",
+        noLoginTitle: "#303C52",
+        greyText: "#818CA2",
+        darkWhite: "#ECEEF1",
+        greyText2: "#435474",
+        waterGreen: "#84EAC0"
+    },
 }

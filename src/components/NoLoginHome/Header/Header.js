@@ -4,12 +4,13 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 import {MyText} from "../../Common/Text/MyText";
 import {MyIcon} from "../../Common/VectorIcon/MyIcon";
 import SelectLanguage from "./SelectLanguage";
-import {ForwardBack} from "../../NavBar/ForwardBack";
-import FeatherIcon from "react-native-vector-icons/Feather";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
+import {ThemeContext} from "../../../contexts/ThemeContext";
+import {WelcomeLoginTitle} from "../../OfferCommon/WelcomeLoginTitle";
 
 const Header = (props) => {
-    let {userLogoSource, signInText, isRecording} = props;
+    let {userLogoSource, signInText, isRecording, handleLogin} = props;
+    let {myColors} = useContext(ThemeContext);
 
     return (
         <View style={{flexDirection: 'row', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -24,14 +25,14 @@ const Header = (props) => {
                             justifyContent: "center",
                             borderStyle: "solid",
                             borderWidth: 1,
-                            borderColor: "#ECEEF1",
+                            borderColor: myColors.darkWhite,
                             width: wp(10),
                             height: wp(10),
                             borderRadius: wp(50),
                         }}>
 
                         <SimpleLineIcons
-                            style={{color: "#435474", fontSize: hp("2.2%")}}
+                            style={{color: myColors.greyText2, fontSize: hp("2.2%")}}
                             name={"arrow-left"}/>
 
                     </TouchableOpacity>
@@ -57,25 +58,27 @@ const Header = (props) => {
 
                         <View style={{justifyContent: 'center', rowGap: 4, marginLeft: wp(2.5)}}>
                             {/** Hello Text - Start */}
-                            <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                                <MyText text={"Hello "} textStyle={{
-                                    color: '#818CA2',
-                                    marginRight: 3,
-                                    fontSize: wp(4),
-                                }} />
-                                <Image style={{marginTop: wp(0.3), width: wp(5), height: wp(4.5) }} resizeMode={'contain'} source={require('../../../assets/image/no-login-home-screen/header/hello.png')} />
-                            </View>
+                            <WelcomeLoginTitle
+                                textContent={"Hello"}
+                                textStyle={{
+                                color: myColors.greyText,
+                                marginRight: 3,
+                                fontSize: wp(4),
+                            }} />
                             {/** Hello Text - End */}
 
 
 
                             {/** User Name or Sign In Text - Start */}
                             <View>
-                                <MyText text={signInText} textStyle={{
-                                    color: "#435474",
-                                    fontSize: wp(4),
-                                    fontWeight: 700,
-                                }}/>
+                                <TouchableOpacity onPress={() => handleLogin()}>
+                                    <MyText text={signInText} textStyle={{
+                                        color: myColors.greyText2,
+                                        fontSize: wp(4),
+                                        fontWeight: 700,
+                                    }}/>
+                                </TouchableOpacity>
+
                             </View>
                             {/** User Name or Sign In Text - End */}
                         </View>
@@ -97,7 +100,7 @@ const Header = (props) => {
                         <MyText
                             text={"Recording"}
                             textStyle={{
-                                color: "#435474",
+                                color: myColors.greyText2,
                                 fontWeight: 600,
                                 fontSize: wp(5)
                             }}
@@ -122,7 +125,7 @@ const Header = (props) => {
                             height: wp('11.5%'),
                             borderWidth: 1,
                             borderStyle: 'solid',
-                            borderColor: '#ECEEF1',
+                            borderColor: myColors.darkWhite,
                             borderRadius: wp('10%'),
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -132,7 +135,7 @@ const Header = (props) => {
                                 iconName={"bell-o"}
                                 iconGroup={"FontAwesome"}
                                 iconStyle={{
-                                    color: "#435474",
+                                    color: myColors.greyText2,
                                     fontSize: wp(6.3)
                                 }}/>
                         </View>

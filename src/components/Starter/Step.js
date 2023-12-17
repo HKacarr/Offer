@@ -11,6 +11,12 @@ export const Step = (props) => {
     let {activeStep, stepTitle, isLastStep, buttonText} = props;
     let {myColors} = useContext(ThemeContext);
     let activeStepImage = null;
+    let steps = [
+        "step_1",
+        "step_2",
+        "step_3"
+    ];
+
 
     if (activeStep == "step_1"){
         activeStepImage = require("../../assets/image/starter/dont-waste-time-with-paperwork.png");
@@ -35,6 +41,7 @@ export const Step = (props) => {
 
     return (
         <SafeAreaView style={{flex: 1}}>
+            {/** Step Show - Start */}
             <View style={{
                 flexDirection: 'row',
                 width: '100%',
@@ -43,32 +50,26 @@ export const Step = (props) => {
                 alignItems: 'center',
                 marginTop: wp(5)
             }}>
-                <View style={{
-                    flexDirection: 'row',
-                    backgroundColor: activeStep == "step_1" ? myColors.offerPurple : myColors.softGrey,
-                    width: wp(20),
-                    height: 2,
-                }} />
 
-
-                <View style={{
-                    flexDirection: 'row',
-                    backgroundColor: activeStep == "step_2" ? myColors.offerPurple : myColors.softGrey,
-                    width: wp(20),
-                    height: 2
-                }} />
-
-
-
-                <View style={{
-                    flexDirection: 'row',
-                    backgroundColor: activeStep == "step_3" ? myColors.offerPurple : myColors.softGrey,
-                    width: wp(20),
-                    height: 2
-                }} />
+                {
+                    steps.map(step => {
+                        return (
+                            <View key={step} style={{
+                                flexDirection: 'row',
+                                backgroundColor: step == activeStep ? myColors.offerPurple : myColors.softGrey,
+                                width: wp(20),
+                                height: 2,
+                            }} />
+                        )
+                    })
+                }
             </View>
+            {/** Step Show - End */}
 
 
+
+
+            {/** Title - Start */}
             <View style={{
                 flex: 1,
                 justifyContent: 'center',
@@ -86,9 +87,12 @@ export const Step = (props) => {
                     }}
                 />
             </View>
+            {/** Title - End */}
 
 
 
+
+            {/** Image - Start */}
             <View style={{
                 flex: 2,
                 justifyContent: 'center',
@@ -103,9 +107,12 @@ export const Step = (props) => {
                     }}
                 />
             </View>
+            {/** Image - End */}
 
 
 
+
+            {/** Button - Start */}
             <View style={{
                 flex: wp(0.14),
                 // backgroundColor: 'yellow',
@@ -128,6 +135,7 @@ export const Step = (props) => {
                     }}
                 />
             </View>
+            {/** Button - End */}
 
         </SafeAreaView>
     )

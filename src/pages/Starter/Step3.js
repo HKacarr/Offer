@@ -10,7 +10,6 @@ export const Step3 = () => {
             navbar={false}
             footer={false}
             status={false}
-            // statusBar={false}
         >
             <Step
                 activeStep={"step_3"}

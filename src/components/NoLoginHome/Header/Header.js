@@ -7,6 +7,8 @@ import SelectLanguage from "./SelectLanguage";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
 import {ThemeContext} from "../../../contexts/ThemeContext";
 import {WelcomeLoginTitle} from "../../OfferCommon/WelcomeLoginTitle";
+import {navigate} from "../../../RootMethods/RootNavigation";
+import {CircleIcon} from "../../OfferCommon/CircleIcon";
 
 const Header = (props) => {
     let {userLogoSource, signInText, isRecording, handleLogin} = props;
@@ -17,25 +19,12 @@ const Header = (props) => {
             {/** Left Side - Start */}
             {
                 isRecording ?
-                    <TouchableOpacity
-                        onPress={() => alert(1)}
-                        style={{
-                            // flex: 1,
-                            alignItems: "center",
-                            justifyContent: "center",
-                            borderStyle: "solid",
-                            borderWidth: 1,
-                            borderColor: myColors.darkWhite,
-                            width: wp(10),
-                            height: wp(10),
-                            borderRadius: wp(50),
-                        }}>
-
-                        <SimpleLineIcons
-                            style={{color: myColors.greyText2, fontSize: hp("2.2%")}}
-                            name={"arrow-left"}/>
-
-                    </TouchableOpacity>
+                    <CircleIcon
+                        pressFunction={() => alert(1)}
+                        iconName={"arrow-left"}
+                        iconGroup={"SimpleLineIcons"}
+                        iconColor={myColors.greyText2}
+                    />
                     :
                     <View style={{flexDirection: 'row'}}>
                         <ImageBackground
@@ -120,25 +109,27 @@ const Header = (props) => {
                 {
                     isRecording ?
                         "" :
-                        <View style={{
-                            width: wp('11.5%'),
-                            height: wp('11.5%'),
-                            borderWidth: 1,
-                            borderStyle: 'solid',
-                            borderColor: myColors.darkWhite,
-                            borderRadius: wp('10%'),
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: wp(2)
-                        }}>
-                            <MyIcon
-                                iconName={"bell-o"}
-                                iconGroup={"FontAwesome"}
-                                iconStyle={{
-                                    color: myColors.greyText2,
-                                    fontSize: wp(6.3)
-                                }}/>
-                        </View>
+                        <TouchableOpacity onPress={() => navigate("NotificationsScreen")} >
+                            <View style={{
+                                width: wp('11.5%'),
+                                height: wp('11.5%'),
+                                borderWidth: 1,
+                                borderStyle: 'solid',
+                                borderColor: myColors.darkWhite,
+                                borderRadius: wp('10%'),
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                padding: wp(2)
+                            }}>
+                                <MyIcon
+                                    iconName={"bell-o"}
+                                    iconGroup={"FontAwesome"}
+                                    iconStyle={{
+                                        color: myColors.greyText2,
+                                        fontSize: wp(6.3)
+                                    }}/>
+                            </View>
+                        </TouchableOpacity>
                 }
             </View>
             {/** Right Side - End */}

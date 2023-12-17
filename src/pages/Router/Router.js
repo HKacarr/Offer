@@ -22,6 +22,7 @@ import {ChangeLanguageScreen} from "../Login/Settings/Language/ChangeLanguageScr
 import {ChangeThemeScreen} from "../Login/Settings/Theme/ChangeThemeScreen";
 import {LoginScreen} from "../Login/Auth/LoginScreen";
 import {HandleNotification} from "../../helper/functions/Notification";
+import {Notifications} from "../User/Notifications/Notifications";
 {/** Screens - End */}
 
 
@@ -57,8 +58,6 @@ const StackScreens = () => {
             <Stack.Screen name={"ChangePasswordScreen"} component={ChangePasswordScreen} />
             <Stack.Screen name={"ChangeLanguageScreen"} component={ChangeLanguageScreen} />
             <Stack.Screen name={"ChangeThemeScreen"} component={ChangeThemeScreen} />
-            {/*<Stack.Screen name={"AuthHomeScreen"} component={AuthHomeScreen} /> */}
-            {/*<Stack.Screen name={"LoginScreen"} component={LoginScreen} />*/}
         </Stack.Navigator>
     )
 };
@@ -154,6 +153,7 @@ export const Router = (props) => {
                         <Stack.Screen name={"Step2"} component={Step2}/>
                         <Stack.Screen name={"Step3"} component={Step3}/>
                         <Stack.Screen name={"NotLoginHomeScreen"} component={NotLoginHomeScreen}/>
+                        <Stack.Screen name={"NotificationsScreen"} component={Notifications} />
                     </Stack.Navigator>
             }
 

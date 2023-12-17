@@ -15,6 +15,7 @@ import Octicons from "react-native-vector-icons/Octicons";
 import SimpleLine from "react-native-vector-icons/SimpleLineIcons";
 import Zocial from "react-native-vector-icons/Zocial";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 
 /**
  *  Use this component to
@@ -69,6 +70,9 @@ export const MyIcon = (props) => {
         case "SimpleLine":
             icon = <SimpleLine name={iconName} style={iconStyle}/>
             break;
+        case "SimpleLineIcons":
+            icon = <SimpleLineIcons name={iconName} style={iconStyle}/>
+            break;
         case "Zocial":
             icon = <Zocial name={iconName} style={iconStyle}/>
             break;
@@ -85,7 +89,7 @@ MyIcon.propTypes = {
         "AntDesign", "Entypo", 'Evil', "Feather",
         "FontAwesome", "FontAwesome5","FontAwesome5Pro", "Foundation",
         "Ionicons", "MaterialIcons", "MaterialCommunity", "Octicons",
-        "SimpleLine", "Zocial", "MaterialCommunityIcons"
+        "SimpleLine", "SimpleLineIcons", "Zocial", "MaterialCommunityIcons"
     ]).isRequired,
     iconStyle: PropTypes.object.isRequired
 };

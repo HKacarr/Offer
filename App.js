@@ -134,7 +134,7 @@ const InitialScreen = (props) => {
                       flex: 1,
                       width: "100%",
                       height: "100%",
-                      backgroundColor: myColors.mainColor,
+                      backgroundColor: myColors.offerPurple,
                       justifyContent: "center",
                       alignItems: "center",
                       paddingBottom: hp(10)
@@ -142,29 +142,30 @@ const InitialScreen = (props) => {
 
                   {/* logo view */}
                   <View
-                      style={{flex: 1, justifyContent: "flex-end"}}>
+                      style={{flex: 1, justifyContent: "center", alignItems: 'center'}}>
 
                     <Image
-                        style={{height: hp("12%"), width: wp("80%")}}
+                        style={{
+                          width: wp("75%"),
+                        }}
                         resizeMode={"contain"}
-                        source={require("./src/assets/logo/rocket.png")}/>
+                        source={require("./src/assets/image/splash-screen/offer-onremote-logo.png")}/>
 
                   </View>
 
                   {/* loading view */}
-                  <View
-                      style={{flex: 1}}>
+                  {/*<View*/}
+                  {/*    style={{flex: 1}}>*/}
 
-                    <View
-                        style={{width: hp(9), height: hp(9), alignSelf: "center", marginTop: hp(10)}}>
+                  {/*  <View style={{width: hp(9), height: hp(9), alignSelf: "center", marginTop: hp(10)}}>*/}
 
-                      <BallIndicator
-                          size={hp(5)}
-                          color={"white"}/>
+                  {/*    <BallIndicator*/}
+                  {/*        size={hp(5)}*/}
+                  {/*        color={"white"}/>*/}
 
-                    </View>
+                  {/*  </View>*/}
 
-                  </View>
+                  {/*</View>*/}
 
                 </View>
           }

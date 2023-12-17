@@ -118,6 +118,7 @@ export const AuthHomeScreen = (props) => {
                                 fontSize: wp(3),
                                 textDecorationLine: 'underline',
                             }}
+                            navigateScreen={"RegisterScreen"}
                         />
                     </View>
                     {/** No Account Yet - End */}

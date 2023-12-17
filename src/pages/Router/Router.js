@@ -33,6 +33,9 @@ import {ThemeContext} from "../../contexts/ThemeContext";
 import {StringContext} from "../../contexts/StringContext";
 import { PopupContext } from "../../contexts/PopupContext";
 import {RegisterScreen} from "../Login/Auth/RegisterScreen";
+import {Step1} from "../Starter/Step1";
+import {Step2} from "../Starter/Step2";
+import {Step3} from "../Starter/Step3";
 {/** Contexts - End */}
 
 const Drawer = createDrawerNavigator();
@@ -146,7 +149,10 @@ export const Router = (props) => {
                             headerShown: false,
                             cardStyleInterpolator: platform === "ios" ? CardStyleInterpolators.forHorizontalIOS : CardStyleInterpolators.forRevealFromBottomAndroid
                         }}
-                        initialRouteName="NotLoginHomeScreen">
+                        initialRouteName="Step1">
+                        <Stack.Screen name={"Step1"} component={Step1}/>
+                        <Stack.Screen name={"Step2"} component={Step2}/>
+                        <Stack.Screen name={"Step3"} component={Step3}/>
                         <Stack.Screen name={"NotLoginHomeScreen"} component={NotLoginHomeScreen}/>
                     </Stack.Navigator>
             }

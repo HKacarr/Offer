@@ -183,7 +183,7 @@ export const LoginScreen = () => {
                         backgroundColor: myColors.offerPurple,
                         marginTop: wp(8),
                         borderRadius: wp(3),
-                        height: hp(6)
+                        height: hp(6.5)
                     }}
                     textStyle={{
                         fontSize: wp(5),

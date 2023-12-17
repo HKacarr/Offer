@@ -27,8 +27,6 @@ export const SocialLogin = () => {
         ];
 
         setSocialLogins(allSocialLogins);
-
-        console.log(socialLogins);
     }, [1])
 
     return (
@@ -41,7 +39,7 @@ export const SocialLogin = () => {
 
 
             return (
-                <View style={socialLoginViewStyle}>
+                <View key={socialLogin} style={socialLoginViewStyle}>
                     <Image
                         source={socialLoginLogo}
                         resizeMode={"contain"}

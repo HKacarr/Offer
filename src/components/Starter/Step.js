@@ -71,14 +71,14 @@ export const Step = (props) => {
 
             {/** Title - Start */}
             <View style={{
-                flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
+                marginTop: wp(8)
             }}>
                 <MyText
                     text={stepTitle}
                     textStyle={{
-                        fontSize: wp(9.2),
+                        fontSize: wp(8),
                         fontWeight: 700,
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -94,10 +94,10 @@ export const Step = (props) => {
 
             {/** Image - Start */}
             <View style={{
-                flex: 2,
                 justifyContent: 'center',
                 alignItems: 'center',
-                // backgroundColor: 'blue'
+                flex: 1,
+                marginTop: wp(12)
             }}>
                 <Image
                     source={activeStepImage}
@@ -114,11 +114,8 @@ export const Step = (props) => {
 
             {/** Button - Start */}
             <View style={{
-                flex: wp(0.14),
-                // backgroundColor: 'yellow',
                 justifyContent: 'flex-end',
                 alignItems: 'center',
-                paddingBottom: wp(8)
             }}>
                 <MyButton
                     onPress={btnAction}

@@ -43,7 +43,8 @@ export const myColors = {
         darkWhite: "#ECEEF1",
         greyText2: "#435474",
         waterGreen: "#84EAC0",
-        softGrey: "#A9B0BF"
+        softGrey: "#A9B0BF",
+        logoutRed: "#E71D34"
     },
     red: {
         mainColor: "#f24343",
@@ -82,7 +83,8 @@ export const myColors = {
         darkWhite: "#ECEEF1",
         greyText2: "#435474",
         waterGreen: "#84EAC0",
-        softGrey: "#A9B0BF"
+        softGrey: "#A9B0BF",
+        logoutRed: "#E71D34"
     },
     blue: {
         mainColor: "#3580DF",
@@ -121,7 +123,8 @@ export const myColors = {
         darkWhite: "#ECEEF1",
         greyText2: "#435474",
         waterGreen: "#84EAC0",
-        softGrey: "#A9B0BF"
+        softGrey: "#A9B0BF",
+        logoutRed: "#E71D34"
     },
     dark: {
         mainColor: "#000",
@@ -160,6 +163,7 @@ export const myColors = {
         darkWhite: "#ECEEF1",
         greyText2: "#435474",
         waterGreen: "#84EAC0",
-        softGrey: "#A9B0BF"
+        softGrey: "#A9B0BF",
+        logoutRed: "#E71D34"
     },
 }

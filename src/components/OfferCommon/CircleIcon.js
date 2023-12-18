@@ -7,7 +7,7 @@ import {ThemeContext} from "../../contexts/ThemeContext";
 
 export const CircleIcon = (props) => {
     let {myColors} = useContext(ThemeContext);
-    let {pressFunction, iconName, iconGroup, iconColor, iconStyle} = props;
+    let {pressFunction, iconName, iconGroup, iconColor, iconStyle, isIcon, frameStyle} = props;
 
     return (
         <TouchableOpacity
@@ -22,16 +22,28 @@ export const CircleIcon = (props) => {
                 width: wp(10),
                 height: wp(10),
                 borderRadius: wp(50),
+                ...frameStyle
             }}>
 
-            <MyIcon
-                iconName={iconName}
-                iconGroup={iconGroup}
-                iconStyle={{
-                    color: iconColor,
-                    fontSize: wp(5.3),
-                    ...iconStyle
-                }}/>
+            {
+                isIcon ?
+                <MyIcon
+                    iconName={iconName}
+                    iconGroup={iconGroup}
+                    iconStyle={{
+                        color: iconColor,
+                        fontSize: wp(5.3),
+                        ...iconStyle
+                    }}
+                />
+                :
+                ""
+            }
+
         </TouchableOpacity>
     )
+}
+
+CircleIcon.defaultProps = {
+    isIcon: true
 }

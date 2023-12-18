@@ -16,7 +16,8 @@ export const NotLoginHomeScreen = (props) => {
     const [contentBgImage, setContentBgImage] = useState(require('../../assets/image/no-login-home-screen/content/circle-bg.png'))
     const [key, setKey] = useState(1);
 
-    let isLogin = loginContext.isLogin;
+    // let isLogin = loginContext.isLogin;
+    let isLogin = true;
 
     function handleRecording()
     {

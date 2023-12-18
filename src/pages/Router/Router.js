@@ -154,6 +154,7 @@ export const Router = (props) => {
                         <Stack.Screen name={"Step3"} component={Step3}/>
                         <Stack.Screen name={"NotLoginHomeScreen"} component={NotLoginHomeScreen}/>
                         <Stack.Screen name={"NotificationsScreen"} component={Notifications} />
+                        <Stack.Screen name={"ProfileScreen"} component={ProfileScreen} />
                     </Stack.Navigator>
             }
 

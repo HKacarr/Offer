@@ -27,22 +27,24 @@ const Header = (props) => {
                     />
                     :
                     <View style={{flexDirection: 'row'}}>
-                        <ImageBackground
-                            style={{
-                                padding: 12,
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                            }}
-                            resizeMode={"contain"}
-                            source={require("../../../assets/image/no-login-home-screen/header/purple-circle.png")}
-                        >
-                            <View>
-                                <Image
-                                    style={{width: wp(9), height: hp(5)}}
-                                    resizeMode={"contain"}
-                                    source={require("../../../assets/image/no-login-home-screen/header/frame.png")}/>
-                            </View>
-                        </ImageBackground>
+                        <TouchableOpacity onPress={() => navigate("ProfileScreen")}>
+                            <ImageBackground
+                                style={{
+                                    padding: 12,
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}
+                                resizeMode={"contain"}
+                                source={require("../../../assets/image/no-login-home-screen/header/purple-circle.png")}
+                            >
+                                <View>
+                                    <Image
+                                        style={{width: wp(9), height: hp(5)}}
+                                        resizeMode={"contain"}
+                                        source={require("../../../assets/image/no-login-home-screen/header/frame.png")}/>
+                                </View>
+                            </ImageBackground>
+                        </TouchableOpacity>
 
 
                         <View style={{justifyContent: 'center', rowGap: 4, marginLeft: wp(2.5)}}>

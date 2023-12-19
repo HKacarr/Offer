@@ -136,10 +136,12 @@ export const Router = (props) => {
                             headerShown: false
                         }}
                         drawerContent={(props) => <DrawerMenu {...props} />}
-                        initialRouteName="">
-                        <Drawer.Screen name={"AuthHomeScreen"} component={AuthHomeScreen} />
-                        <Drawer.Screen name={"LoginScreen"} component={LoginScreen} />
-                        <Drawer.Screen name={"RegisterScreen"} component={RegisterScreen} />
+                        initialRouteName="NotLoginHomeScreen">
+                        <Stack.Screen name={"NotLoginHomeScreen"} component={NotLoginHomeScreen}/>
+                        <Drawer.Screen name={"NotificationsScreen"} component={Notifications} />
+                        <Drawer.Screen name={"ProfileScreen"} component={ProfileScreen} />
+                        <Drawer.Screen name={"ChangeNameEmilScreen"} component={ChangeNameEmailScreen} />
+                        <Drawer.Screen name={"ChangePasswordScreen"} component={ChangePasswordScreen} />
                     </Drawer.Navigator>
 
                     :
@@ -154,10 +156,9 @@ export const Router = (props) => {
                         <Stack.Screen name={"Step2"} component={Step2}/>
                         <Stack.Screen name={"Step3"} component={Step3}/>
                         <Stack.Screen name={"NotLoginHomeScreen"} component={NotLoginHomeScreen}/>
-                        <Stack.Screen name={"NotificationsScreen"} component={Notifications} />
-                        <Stack.Screen name={"ProfileScreen"} component={ProfileScreen} />
-                        <Stack.Screen name={"ChangeNameEmilScreen"} component={ChangeNameEmailScreen} />
-                        <Stack.Screen name={"ChangePasswordScreen"} component={ChangePasswordScreen} />
+                        <Stack.Screen name={"AuthHomeScreen"} component={AuthHomeScreen} />
+                        <Stack.Screen name={"LoginScreen"} component={LoginScreen} />
+                        <Stack.Screen name={"RegisterScreen"} component={RegisterScreen} />
                     </Stack.Navigator>
             }
 

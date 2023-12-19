@@ -11,6 +11,7 @@ import {navigate} from "../../../RootMethods/RootNavigation";
 import {MyText} from "../../../components/Common/Text/MyText";
 import {IconText} from "../../../components/OfferCommon/IconText";
 import {ImageText} from "../../../components/OfferCommon/ImageText";
+import {TitleHeader} from "../../../components/OfferCommon/TitleHeader";
 
 export const ProfileScreen = (props) => {
     const {myColors} = useContext(ThemeContext);
@@ -67,59 +68,12 @@ export const ProfileScreen = (props) => {
 
 
                 <KeyboardAwareScrollView>
-                    <View style={{
-                        flexDirection: 'row',
-                    }}>
-                        {/** Go Back - Start */}
-                        <View style={{
-                            width: wp(12),
-                        }}>
-                            <CircleIcon
-                                pressFunction={() => navigate("NotLoginHomeScreen")}
-                                iconName={"arrow-left"}
-                                iconGroup={"SimpleLineIcons"}
-                                iconColor={myColors.greyText2}
-                            />
-                        </View>
-                        {/** Go Back - End */}
-
-
-                        {/** Title - Start */}
-                        <View style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            width: wp(70)
-                        }}>
-                            <MyText
-                                text={"Profile"}
-                                textStyle={{
-                                    color: myColors.greyText2,
-                                    fontWeight: 600,
-                                    fontSize: wp(4.5)
-                                }}
-                            />
-                        </View>
-                        {/** Title - End */}
-
-
-
-                        {/** Search - Start */}
-                        <View style={{
-                            width: wp(12),
-                            justifyContent: 'flex-end',
-                            alignItems: 'flex-end'
-                        }}>
-                            <CircleIcon
-                                pressFunction={() => alert(1)}
-                                iconName={"search"}
-                                iconGroup={"Feather"}
-                                iconColor={myColors.greyText2}
-                                iconStyle={{color: myColors.greyText2, fontSize: hp("3%")}}
-                            />
-                        </View>
-                        {/** Search - End */}
-                    </View>
-
+                    {/** Header - Start */}
+                    <TitleHeader
+                        title={"Profile"}
+                        redirectUrl={"NotLoginHomeScreen"}
+                    />
+                    {/** Header - End */}
 
 
 

@@ -13,6 +13,7 @@ import {CircleIcon} from "../../../components/OfferCommon/CircleIcon";
 import {navigate} from "../../../RootMethods/RootNavigation";
 import {IconText} from "../../../components/OfferCommon/IconText";
 import {NotificationList} from "../../../components/Notifications/NotificationList";
+import {TitleHeader} from "../../../components/OfferCommon/TitleHeader";
 
 export const Notifications = () => {
     let {myColors} = useContext(ThemeContext);
@@ -84,59 +85,10 @@ export const Notifications = () => {
         >
            <ScrollView>
                {/** Header - Start */}
-               <View style={{
-                   flexDirection: 'row',
-               }}>
-                   {/** Go Back - Start */}
-                   <View style={{
-                       width: wp(12),
-                   }}>
-                       <CircleIcon
-                        pressFunction={() => navigate("NotLoginHomeScreen")}
-                        iconName={"arrow-left"}
-                        iconGroup={"SimpleLineIcons"}
-                        iconColor={myColors.greyText2}
-                       />
-                   </View>
-                   {/** Go Back - End */}
-
-
-                   {/** Title - Start */}
-                    <View style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: wp(70)
-                    }}>
-                        <MyText
-                            text={"Notifications"}
-                            textStyle={{
-                                color: myColors.greyText2,
-                                fontWeight: 600,
-                                fontSize: wp(4.5)
-                            }}
-                        />
-                    </View>
-                   {/** Title - End */}
-
-
-
-                   {/** Search - Start */}
-                   <View style={{
-                       width: wp(12),
-                       justifyContent: 'flex-end',
-                       alignItems: 'flex-end'
-                   }}>
-                       <CircleIcon
-                           pressFunction={search()}
-                           iconName={"search"}
-                           iconGroup={"Feather"}
-                           iconColor={myColors.greyText2}
-                           iconStyle={{color: myColors.greyText2, fontSize: hp("3%")}}
-                       />
-                   </View>
-                   {/** Search - End */}
-               </View>
-               {/** Header - End */}
+               <TitleHeader
+                   title={"Notifications"}
+                   redirectUrl={"NotLoginHomeScreen"}
+               />
 
 
 

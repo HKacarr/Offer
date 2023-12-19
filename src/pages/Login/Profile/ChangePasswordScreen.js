@@ -13,6 +13,7 @@ import {Input} from "../../../components/Auth/Authorize/Input";
 import {ThemeContext} from "../../../contexts/ThemeContext";
 import {CircleIcon} from "../../../components/OfferCommon/CircleIcon";
 import {MyText} from "../../../components/Common/Text/MyText";
+import {TitleHeader} from "../../../components/OfferCommon/TitleHeader";
 
 export const ChangePasswordScreen = (props) => {
     const {myStrings} = useContext(StringContext);
@@ -67,63 +68,16 @@ export const ChangePasswordScreen = (props) => {
             footer={false}
             status={false}
         >
-
-
-            <View style={{
-                flexDirection: 'row',
-            }}>
-                {/** Go Back - Start */}
-                <View style={{
-                    width: wp(12),
-                }}>
-                    <CircleIcon
-                        pressFunction={() => navigate("ProfileScreen")}
-                        iconName={"arrow-left"}
-                        iconGroup={"SimpleLineIcons"}
-                        iconColor={myColors.greyText2}
-                    />
-                </View>
-                {/** Go Back - End */}
-
-
-                {/** Title - Start */}
-                <View style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    width: wp(70)
-                }}>
-                    <MyText
-                        text={"Profile"}
-                        textStyle={{
-                            color: myColors.greyText2,
-                            fontWeight: 600,
-                            fontSize: wp(4.5)
-                        }}
-                    />
-                </View>
-                {/** Title - End */}
+            {/** Header - Start */}
+            <TitleHeader
+                title={"Password"}
+                redirectUrl={"ProfileScreen"}
+            />
+            {/** Header - End */}
 
 
 
-                {/** Search - Start */}
-                <View style={{
-                    width: wp(12),
-                    justifyContent: 'flex-end',
-                    alignItems: 'flex-end'
-                }}>
-                    <CircleIcon
-                        pressFunction={() => alert(1)}
-                        iconName={"search"}
-                        iconGroup={"Feather"}
-                        iconColor={myColors.greyText2}
-                        iconStyle={{color: myColors.greyText2, fontSize: hp("3%")}}
-                    />
-                </View>
-                {/** Search - End */}
-            </View>
-
-
-
+            {/** Inputs - Start */}
             <Input
                 inputLabel={"Current Password"}
                 inputLabelStyle={{
@@ -214,9 +168,11 @@ export const ChangePasswordScreen = (props) => {
                     marginTop: wp(5)
                 }}
             />
+            {/** Inputs - End */}
 
 
 
+            {/** Forgot Password Text - Start */}
             <View
                 style={{
                     justifyContent: 'center',
@@ -237,10 +193,12 @@ export const ChangePasswordScreen = (props) => {
                     />
                 </TouchableOpacity>
             </View>
+            {/** Forgot Password Text - End */}
 
 
 
 
+            {/** Submit Button - Start */}
             <View style={{
                 flex: 1,
                 alignItems: 'flex-end',
@@ -261,7 +219,7 @@ export const ChangePasswordScreen = (props) => {
                     }}
                 />
             </View>
-
+            {/** Submit Button - End */}
 
 
             {/*<View*/}

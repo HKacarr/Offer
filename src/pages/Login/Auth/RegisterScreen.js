@@ -13,6 +13,7 @@ import {Input} from "../../../components/Auth/Authorize/Input";
 import {MyButton} from "../../../components/Common/Button/MyButton";
 import {colorAlias} from "../../../values/Colors/Colors";
 import {SocialLogin} from "../../../components/Auth/Authorize/SocialLogin";
+import {CircleIcon} from "../../../components/OfferCommon/CircleIcon";
 
 export const RegisterScreen = () => {
     let {myColors} = useContext(ThemeContext)
@@ -33,25 +34,15 @@ export const RegisterScreen = () => {
             <SafeAreaView style={{flex:1}}>
                 {/** Go Back - Start */}
                 <View>
-                    <TouchableOpacity
-                        onPress={() => goBack()}
-                        style={{
-                            // flex: 1,
-                            alignItems: "center",
-                            justifyContent: "center",
-                            borderStyle: "solid",
-                            borderWidth: 1,
-                            borderColor: myColors.darkWhite,
-                            width: wp(10),
-                            height: wp(10),
-                            borderRadius: wp(50),
-                        }}>
-
-                        <SimpleLineIcons
-                            style={{color: myColors.greyText2, fontSize: hp("2.2%")}}
-                            name={"arrow-left"}/>
-
-                    </TouchableOpacity>
+                    <CircleIcon
+                        iconName={"arrow-left"}
+                        iconGroup={"SimpleLineIcons"}
+                        iconstyle={{
+                            color: myColors.greyText2,
+                            fontSize: hp("2.2%")
+                        }}
+                        pressFunction={() => goBack()}
+                    />
                 </View>
                 {/** Go Back - End */}
 
@@ -89,6 +80,8 @@ export const RegisterScreen = () => {
                     />
                 </View>
                 {/** Sign In Text - End */}
+
+
 
 
                 {/** Inputs - Start */}

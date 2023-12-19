@@ -8,6 +8,7 @@ import {ThemeContext} from "../../../contexts/ThemeContext";
 import {navigate} from "../../../RootMethods/RootNavigation";
 import {Input} from "../../../components/Auth/Authorize/Input";
 import {MyButton} from "../../../components/Common/Button/MyButton";
+import {TitleHeader} from "../../../components/OfferCommon/TitleHeader";
 
 export const ChangeNameEmailScreen = (props) => {
     let {myColors} = useContext(ThemeContext)
@@ -17,60 +18,17 @@ export const ChangeNameEmailScreen = (props) => {
             footer={false}
             status={false}
         >
-            <View style={{
-                flexDirection: 'row',
-            }}>
-                {/** Go Back - Start */}
-                <View style={{
-                    width: wp(12),
-                }}>
-                    <CircleIcon
-                        pressFunction={() => navigate("ProfileScreen")}
-                        iconName={"arrow-left"}
-                        iconGroup={"SimpleLineIcons"}
-                        iconColor={myColors.greyText2}
-                    />
-                </View>
-                {/** Go Back - End */}
-
-
-                {/** Title - Start */}
-                <View style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    width: wp(70)
-                }}>
-                    <MyText
-                        text={"Profile"}
-                        textStyle={{
-                            color: myColors.greyText2,
-                            fontWeight: 600,
-                            fontSize: wp(4.5)
-                        }}
-                    />
-                </View>
-                {/** Title - End */}
+            {/** Header - Start */}
+            <TitleHeader
+                title={"Profile"}
+                redirectUrl={"ProfileScreen"}
+            />
+            {/** Header - End */}
 
 
 
-                {/** Search - Start */}
-                <View style={{
-                    width: wp(12),
-                    justifyContent: 'flex-end',
-                    alignItems: 'flex-end'
-                }}>
-                    <CircleIcon
-                        pressFunction={() => alert(1)}
-                        iconName={"search"}
-                        iconGroup={"Feather"}
-                        iconColor={myColors.greyText2}
-                        iconStyle={{color: myColors.greyText2, fontSize: hp("3%")}}
-                    />
-                </View>
-                {/** Search - End */}
-            </View>
 
-
+            {/** User Profile Image - Start */}
             <View style={{
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -121,8 +79,13 @@ export const ChangeNameEmailScreen = (props) => {
                     />
                 </View>
             </View>
+            {/** User Profile Image - End */}
 
 
+
+
+
+            {/** Inputs - Start */}
             <View style={{
                 marginTop: wp(5)
             }}>
@@ -183,9 +146,12 @@ export const ChangeNameEmailScreen = (props) => {
                     }}
                 />
             </View>
+            {/** Inputs - End */}
 
 
 
+
+            {/** Submit Button - Start */}
             <View>
                 <MyButton
                     onPress={() => alert("Save")}
@@ -201,6 +167,7 @@ export const ChangeNameEmailScreen = (props) => {
                     }}
                 />
             </View>
+            {/** Submit Button - End */}
         </MyContainer>
     )
 }

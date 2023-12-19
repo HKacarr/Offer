@@ -11,7 +11,7 @@ import {navigate} from "../../../RootMethods/RootNavigation";
 import {CircleIcon} from "../../OfferCommon/CircleIcon";
 
 const Header = (props) => {
-    let {userLogoSource, signInText, isRecording, handleLogin} = props;
+    let {userLogoSource, signInText, isRecording, handleLogin, handleRecording} = props;
     let {myColors} = useContext(ThemeContext);
 
     return (
@@ -20,7 +20,7 @@ const Header = (props) => {
             {
                 isRecording ?
                     <CircleIcon
-                        pressFunction={() => alert(1)}
+                        pressFunction={handleRecording}
                         iconName={"arrow-left"}
                         iconGroup={"SimpleLineIcons"}
                         iconColor={myColors.greyText2}

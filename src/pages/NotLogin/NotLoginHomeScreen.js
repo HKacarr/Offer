@@ -17,7 +17,7 @@ export const NotLoginHomeScreen = (props) => {
     const [key, setKey] = useState(1);
 
     // let isLogin = loginContext.isLogin;
-    let isLogin = true;
+    let isLogin = false;
 
     function handleRecording()
     {
@@ -29,11 +29,13 @@ export const NotLoginHomeScreen = (props) => {
     // sample login process for changing navigation container
     function _handleLogin() {
         // to let know the navigator user has login
-        loginContext.setLogin(true);
+        navigate("AuthHomeScreen");
+        // loginContext.setLogin(false);
     }
 
     return (
-        <SafeAreaView style={{flex:1, backgroundColor: 'white'}}>
+        <SafeAreaView style={{flex:1, backgroundColor: myColors.pageBGColor}}>
+            {/** Header - Start */}
             <View style={{
                 height: hp(7),
                 justifyContent: 'center',
@@ -44,10 +46,15 @@ export const NotLoginHomeScreen = (props) => {
                         userLogoSource={"./assets/image/no-login-home-screen/header/frame.png"}
                         signInText={isLogin ? "User Name" : "Sign In"}
                         isRecording={isRecording}
+                        handleRecording={handleRecording}
                         handleLogin={_handleLogin}
                     />
             </View>
+            {/** Header - End */}
 
+
+
+            {/** Content - Start */}
             <View style={{
                 marginTop: wp(10),
                 flex: 1,
@@ -103,6 +110,7 @@ export const NotLoginHomeScreen = (props) => {
 
 
 
+                    {/** Record Buttons - Start */}
                     <View style={{
                         flexDirection: 'row',
                         alignItems: 'flex-end',
@@ -119,6 +127,7 @@ export const NotLoginHomeScreen = (props) => {
                             <SideButton isRecording={isRecording} isLeft={true} />
 
 
+                            {/** TODO MyButton ile yap */}
                             <TouchableOpacity onPress={handleRecording}>
                                 <View style={{
                                     width: wp('17.5%'),
@@ -156,8 +165,10 @@ export const NotLoginHomeScreen = (props) => {
                         </View>
 
                     </View>
+                    {/** Record Buttons - End */}
                 </ImageBackground>
             </View>
+            {/** Content - End */}
         </SafeAreaView>
 
 

@@ -231,6 +231,7 @@ export const ProfileScreen = (props) => {
                             <ImageText
                                 text={"Profile"}
                                 imageAlias={"user"}
+                                redirectUrl={"ChangeNameEmilScreen"}
                             />
 
 
@@ -238,6 +239,7 @@ export const ProfileScreen = (props) => {
                                 text={"Password"}
                                 imageAlias={"password"}
                                 isLastItem={true}
+                                redirectUrl={"ChangePasswordScreen"}
                             />
 
                         </View>
@@ -313,7 +315,7 @@ export const ProfileScreen = (props) => {
                                 textStyle={{
                                     color: myColors.logoutRed,
                                     fontWeight: 500,
-                                    fontSize: wp(4)
+                                    fontSize: wp(3.7)
                                 }}
                             />
                         </View>

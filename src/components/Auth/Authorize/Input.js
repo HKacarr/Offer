@@ -6,11 +6,13 @@ import {MyInput} from "../../Common/Input/MyInput";
 import {ThemeContext} from "../../../contexts/ThemeContext";
 
 export const Input = (props) => {
-    let {inputLabel, inputLabelStyle, placeholder, containerStyle, textInputStyle, rightIcon, secureTextEntry} = props;
+    let {inputLabel, inputLabelStyle, placeholder, containerStyle, textInputStyle, rightIcon, secureTextEntry, parentViewStyle} = props;
     let [inputVal, setInputVal] = useState("");
 
     return (
-        <View>
+        <View style={{
+            ...parentViewStyle
+        }}>
             <View>
                 <MyText
                     text={inputLabel}

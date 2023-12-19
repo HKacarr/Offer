@@ -3,10 +3,11 @@ import {heightPercentageToDP as hp, widthPercentageToDP as wp} from "react-nativ
 import {Image, TouchableOpacity, View} from "react-native";
 import {MyText} from "../Common/Text/MyText";
 import {ThemeContext} from "../../contexts/ThemeContext";
+import {navigate} from "../../RootMethods/RootNavigation";
 
 export const ImageText = (props) => {
     let {myColors} = useContext(ThemeContext);
-    let {text, textStyle, imageAlias, imageStyle, isLastItem} = props;
+    let {text, textStyle, imageAlias, imageStyle, isLastItem, redirectUrl} = props;
     let imageUrl = null;
 
     if (imageAlias == "user"){
@@ -25,7 +26,7 @@ export const ImageText = (props) => {
 
 
     return (
-        <TouchableOpacity onPress={() => alert(imageAlias)}>
+        <TouchableOpacity onPress={() => navigate(redirectUrl)}>
             <View style={{
                 flexDirection: 'row',
                 alignItems: 'center',

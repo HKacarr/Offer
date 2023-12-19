@@ -37,6 +37,7 @@ import {RegisterScreen} from "../Login/Auth/RegisterScreen";
 import {Step1} from "../Starter/Step1";
 import {Step2} from "../Starter/Step2";
 import {Step3} from "../Starter/Step3";
+import {ChangeNameEmailScreen} from "../Login/Profile/ChangeNameEmailScreen";
 {/** Contexts - End */}
 
 const Drawer = createDrawerNavigator();
@@ -155,6 +156,8 @@ export const Router = (props) => {
                         <Stack.Screen name={"NotLoginHomeScreen"} component={NotLoginHomeScreen}/>
                         <Stack.Screen name={"NotificationsScreen"} component={Notifications} />
                         <Stack.Screen name={"ProfileScreen"} component={ProfileScreen} />
+                        <Stack.Screen name={"ChangeNameEmilScreen"} component={ChangeNameEmailScreen} />
+                        <Stack.Screen name={"ChangePasswordScreen"} component={ChangePasswordScreen} />
                     </Stack.Navigator>
             }
 

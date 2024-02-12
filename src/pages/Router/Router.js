@@ -159,6 +159,7 @@ export const Router = (props) => {
                         <Stack.Screen name={"AuthHomeScreen"} component={AuthHomeScreen} />
                         <Stack.Screen name={"LoginScreen"} component={LoginScreen} />
                         <Stack.Screen name={"RegisterScreen"} component={RegisterScreen} />
+                        <Drawer.Screen name={"NotificationsScreen"} component={Notifications} />
                     </Stack.Navigator>
             }
 

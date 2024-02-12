@@ -7,23 +7,55 @@ import {MyText} from "../../components/Common/Text/MyText";
 import Header from "../../components/NoLoginHome/Header/Header";
 import SideButton from "../../components/NoLoginHome/BottomButtons/SideButton";
 import {navigate} from "../../RootMethods/RootNavigation";
+import AudioRecorderPlayer from 'react-native-audio-recorder-player';
+const audioRecorderPlayer = new AudioRecorderPlayer();
+
 
 export const NotLoginHomeScreen = (props) => {
+    /** Contexts - start */
     const loginContext = useContext(LoginContext);
     const {myColors} = useContext(ThemeContext);
+    /** Contexts - end */
 
+
+    /** States - start */
     const [isRecording, setIsRecording] = useState(false);
     const [contentBgImage, setContentBgImage] = useState(require('../../assets/image/no-login-home-screen/content/circle-bg.png'))
     const [key, setKey] = useState(1);
+    const [recordTime, setRecordTime] = useState("00:00:00");
+    /** States - end */
 
+
+    /** Declare Variables - start */
     // let isLogin = loginContext.isLogin;
     let isLogin = false;
+    let recorderResult;
+    /** Declare Variables - end */
 
-    function handleRecording()
-    {
-        setIsRecording(!isRecording);
-        setContentBgImage(!isRecording ? null : require('../../assets/image/no-login-home-screen/content/circle-bg.png'));
-        setKey(prevKey => prevKey + 1)
+
+
+
+    let startRecord = async () => {
+        console.log("Recorder Started");
+        setIsRecording(true);
+        setContentBgImage(null);
+        await audioRecorderPlayer.startRecorder();
+        audioRecorderPlayer.addRecordBackListener(e => {
+            setRecordTime(audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)));
+            console.log('Recording . . . ', e.currentPosition);
+            return;
+        });
+    };
+
+
+    let stopRecord = async () => {
+        /** Recording Stop */
+        const audio = await audioRecorderPlayer.stopRecorder();
+        audioRecorderPlayer.removeRecordBackListener();
+        setIsRecording(false);
+
+
+        console.log("Result : ", audio);
     }
 
     // sample login process for changing navigation container
@@ -46,7 +78,7 @@ export const NotLoginHomeScreen = (props) => {
                         userLogoSource={"./assets/image/no-login-home-screen/header/frame.png"}
                         signInText={isLogin ? "User Name" : "Sign In"}
                         isRecording={isRecording}
-                        handleRecording={handleRecording}
+                        // handleRecording={handleRecording}
                         handleLogin={_handleLogin}
                     />
             </View>
@@ -84,7 +116,7 @@ export const NotLoginHomeScreen = (props) => {
                         isRecording ?
                             <View>
                                 <MyText
-                                    text={"00:01"}
+                                    text={recordTime}
                                     textStyle={{
                                         fontSize: wp(7.5),
                                         color: myColors.greyText,
@@ -128,7 +160,7 @@ export const NotLoginHomeScreen = (props) => {
 
 
                             {/** TODO MyButton ile yap */}
-                            <TouchableOpacity onPress={handleRecording}>
+                            <TouchableOpacity onPress={!isRecording ? startRecord :  stopRecord}>
                                 <View style={{
                                     width: wp('17.5%'),
                                     height: wp('17.5%'),

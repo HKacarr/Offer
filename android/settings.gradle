@@ -2,3 +2,6 @@ rootProject.name = 'OfferApp'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/react-native-gradle-plugin')
+include ':app', ':flipper', ':flipper-network-plugin'
+project(':flipper').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-flipper/android')
+project(':flipper-network-plugin').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-flipper/android/network')

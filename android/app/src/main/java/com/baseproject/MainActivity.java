@@ -37,6 +37,8 @@ public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+      super.onCreate(savedInstanceState);
+      SoLoader.init(this, false);
+      ReactNativeFlipper.initializeFlipper(this); // Flipper'ı başlatın
   }
 }

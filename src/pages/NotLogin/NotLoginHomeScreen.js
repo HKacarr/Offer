@@ -8,7 +8,11 @@ import Header from "../../components/NoLoginHome/Header/Header";
 import SideButton from "../../components/NoLoginHome/BottomButtons/SideButton";
 import {navigate} from "../../RootMethods/RootNavigation";
 import AudioRecorderPlayer from 'react-native-audio-recorder-player';
+import {CreatePage} from "../Offer/CreatePage";
+import {MyRequest} from "../../adapter/api/MyRequest";
+import {DialogType, ShowDialog} from "../../helper/components/PopupDialogs";
 const audioRecorderPlayer = new AudioRecorderPlayer();
+audioRecorderPlayer.setSubscriptionDuration(0.1);
 
 
 export const NotLoginHomeScreen = (props) => {
@@ -20,9 +24,11 @@ export const NotLoginHomeScreen = (props) => {
 
     /** States - start */
     const [isRecording, setIsRecording] = useState(false);
+    const [isRecordStarted, setIsRecordStarted] = useState(false);
     const [contentBgImage, setContentBgImage] = useState(require('../../assets/image/no-login-home-screen/content/circle-bg.png'))
     const [key, setKey] = useState(1);
     const [recordTime, setRecordTime] = useState("00:00:00");
+    const [recordedAudioUrl, setRecordedAudioUrl] = useState(null);
     /** States - end */
 
 
@@ -34,15 +40,36 @@ export const NotLoginHomeScreen = (props) => {
 
 
 
+    let cancelAudioRecord = () => {
+        console.log("Geri Dönnnn");
+        setIsRecording(false);
+        setIsRecordStarted(false);
+        setRecordTime("00:00:00");
+        navigate("NotLoginHomeScreen");
+    }
+
+
+    let createOfferFromRecord = () => {
+        console.log("Offer Create Page");
+        setIsRecording(false);
+        setIsRecordStarted(false);
+        setRecordTime("00:00:00");
+
+        console.log("Offer Audio Url : ", recordedAudioUrl);
+        navigate("CreateOfferPage", {recordedAudioUrl: recordedAudioUrl});
+    }
+
+
 
     let startRecord = async () => {
         console.log("Recorder Started");
         setIsRecording(true);
+        setIsRecordStarted(true);
         setContentBgImage(null);
         await audioRecorderPlayer.startRecorder();
         audioRecorderPlayer.addRecordBackListener(e => {
-            setRecordTime(audioRecorderPlayer.mmssss(Math.floor(e.currentPosition)));
-            console.log('Recording . . . ', e.currentPosition);
+            setRecordTime(audioRecorderPlayer.mmssss(e.currentPosition));
+            console.log('Recording . . . ', e);
             return;
         });
     };
@@ -51,16 +78,17 @@ export const NotLoginHomeScreen = (props) => {
     let stopRecord = async () => {
         /** Recording Stop */
         const audio = await audioRecorderPlayer.stopRecorder();
+        // await audioRecorderPlayer.pauseRecorder();
         audioRecorderPlayer.removeRecordBackListener();
-        setIsRecording(false);
-
+        // setIsRecording(false);
+        setIsRecordStarted(false);
+        setRecordedAudioUrl(audio);
 
         console.log("Result : ", audio);
     }
 
     // sample login process for changing navigation container
     function _handleLogin() {
-        // to let know the navigator user has login
         navigate("AuthHomeScreen");
         // loginContext.setLogin(false);
     }
@@ -156,7 +184,7 @@ export const NotLoginHomeScreen = (props) => {
                             alignItems: 'center',
                             gap: wp(5)
                         }}>
-                            <SideButton isRecording={isRecording} isLeft={true} />
+                            <SideButton sideButtonEvent={cancelAudioRecord} isRecording={isRecording} isLeft={true} />
 
 
                             {/** TODO MyButton ile yap */}
@@ -193,7 +221,7 @@ export const NotLoginHomeScreen = (props) => {
                             </TouchableOpacity>
 
 
-                            <SideButton isRecording={isRecording} isLeft={false} />
+                            <SideButton sideButtonEvent={createOfferFromRecord} isRecording={isRecording} isLeft={false} />
                         </View>
 
                     </View>

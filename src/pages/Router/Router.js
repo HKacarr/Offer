@@ -38,6 +38,7 @@ import {Step1} from "../Starter/Step1";
 import {Step2} from "../Starter/Step2";
 import {Step3} from "../Starter/Step3";
 import {ChangeNameEmailScreen} from "../Login/Profile/ChangeNameEmailScreen";
+import {CreatePage} from "../Offer/CreatePage";
 {/** Contexts - End */}
 
 const Drawer = createDrawerNavigator();
@@ -160,6 +161,7 @@ export const Router = (props) => {
                         <Stack.Screen name={"LoginScreen"} component={LoginScreen} />
                         <Stack.Screen name={"RegisterScreen"} component={RegisterScreen} />
                         <Drawer.Screen name={"NotificationsScreen"} component={Notifications} />
+                        <Drawer.Screen name={"CreateOfferPage"} component={CreatePage} />
                     </Stack.Navigator>
             }
 
